@@ -76,9 +76,9 @@
 				
 				</select>
 
-				<input type="text" name="descript" placeholder="Add description" id="taskDescription">
+				<input type="text" name="descript" placeholder="Add description" id="taskDescription" required>
 
-				<input type="number" name="amount" placeholder="value" id="num">
+				<input type="number" name="amount" placeholder="value" id="num" required>
 
 				<input type="submit" name="submit" value="✔" class="subButton">
 			</div>
