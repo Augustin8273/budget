@@ -71,7 +71,8 @@
 					while($data=mysqli_fetch_array($result)) {
 					?>
 					<tr>
-						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td>
+						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td><td></td><td></td>
+						<td id="cancel"><a href="code.php?delete=<?php echo $data['id']; ?>">❌</a></td>	
 					</tr>
 					<?php } ?>
 				</table>
@@ -88,7 +89,8 @@
 					while($data=mysqli_fetch_array($result)) {
 					?>
 					<tr>
-						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td>
+						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td></td><td></td><td></td>
+						<td id="cancel"><a href="code.php?delete=<?php echo $data['id']; ?>">❌</a></td>
 					</tr>
 					<?php } ?>
 				</table>

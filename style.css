@@ -93,3 +93,11 @@ h3{
 	font-size: 20px;
 	color: #ff514a;
 }
+
+#cancel{
+	display: hidden;
+}
+
+a{
+	text-decoration: none;
+}
