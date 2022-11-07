@@ -40,17 +40,20 @@
 		
 		
 			<div class="monitor">
-				<select id="taskType">
+				<form action="code.php" method="POST"  enctype="">
+				<select id="taskType" name="catego">
 					<option>+</option>
 					<option>-</option>
 				
 				</select>
 
-				<input type="text" name="" placeholder="Add description" id="taskDescription">
+				<input type="text" name="descript" placeholder="Add description" id="taskDescription">
 
-				<input type="number" name="" placeholder="value" id="num">
-				<button id="taskSubmit">✔</button>
+				<input type="number" name="amount" placeholder="value" id="num">
+
+				<input type="submit" name="submit" value="✔" class="subButton">
 			</div>
+			</form>
 
 
 	<div class="container-list">
@@ -59,18 +62,35 @@
 			<div class="incomes">
 				<table>
 					<th>Incomes</th>
+
+					<?php
+
+					$query="SELECT * FROM budgettable where category='+'";
+					$result=mysqli_query($con,$query);
+
+					while($data=mysqli_fetch_array($result)) {
+					?>
 					<tr>
-						<td>dddddddd</td><td></td><td>5667</td>
+						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td>
 					</tr>
+					<?php } ?>
 				</table>
 			</div>
 
 			<div class="expenses">
 				<table>
 					<th>Expenses</th>
+					<?php
+
+					$query="SELECT * FROM budgettable where category='-'";
+					$result=mysqli_query($con,$query);
+
+					while($data=mysqli_fetch_array($result)) {
+					?>
 					<tr>
-						<td>dddddddd</td><td></td><td>5667</td>
+						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td>
 					</tr>
+					<?php } ?>
 				</table>
 			</div>
 
