@@ -23,10 +23,39 @@
 				</div>
 
 				<div class="display-income">
-					Income
+					Income : 
+						<?php
+
+					$query="SELECT amount FROM budgettable where category='+'";
+					$result=mysqli_query($con,$query);
+
+					$totalIncome=0;
+
+					while($data=mysqli_fetch_array($result)) {
+						$totalIncome+=$data['amount'];
+					}
+						?>
+						<span>
+							<?php echo $totalIncome ?>
+						</span>
+					
 				</div>
 				<div class="display-expense">
-					Expenses
+					Expenses :
+					<?php
+
+					$query="SELECT amount FROM budgettable where category='-'";
+					$result=mysqli_query($con,$query);
+
+					$totalExpense=0;
+
+					while($data=mysqli_fetch_array($result)) {
+						$totalExpense+=$data['amount'];
+					}
+						?>
+						<span>
+							<?php echo $totalExpense ?>
+						</span>
 					
 				</div>
 				
