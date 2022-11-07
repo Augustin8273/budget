@@ -14,11 +14,37 @@
 		
 		
 			<div class="monitor">
-				<h3>Available budget in November 2022</h3>
+				<h3 id="time"></h3>
 
 				<div class="display-typed">
+					<?php
 
-					+800,00000,0000
+					$query="SELECT amount FROM budgettable where category='+'";
+					$result=mysqli_query($con,$query);
+					$totalIncome=0;
+
+					while($data=mysqli_fetch_array($result)) {
+						$totalIncome+=$data['amount'];
+					}
+					$query="SELECT amount FROM budgettable where category='-'";
+					$result=mysqli_query($con,$query);
+
+					$totalExpense=0;
+
+					while($data=mysqli_fetch_array($result)) {
+						$totalExpense+=$data['amount'];
+					}
+					
+					$availableBudget=$totalIncome-$totalExpense;
+						?>
+
+					<span>
+							<?php if($availableBudget>0){
+								echo "+".$availableBudget;
+							}else{
+								echo $availableBudget;
+							}  ?>
+					</span>
 					
 				</div>
 
@@ -36,7 +62,7 @@
 					}
 						?>
 						<span>
-							<?php echo $totalIncome ?>
+							<?php echo " + ".$totalIncome ?>
 						</span>
 					
 				</div>
@@ -54,15 +80,24 @@
 					}
 						?>
 						<span>
-							<?php echo $totalExpense ?>
+							<?php echo " - ".$totalExpense ?>
+						</span>&nbsp&nbsp&nbsp
+
+						<span>
+							<?php if($totalIncome==0 && $totalExpense==0){
+								echo "0 %";
+							}
+							else if($totalIncome==0 && $totalExpense>0){
+								echo "100 %";
+							}else{
+								echo $totalExpense*100/$totalIncome."%";
+							}
+							 ?>
 						</span>
 					
 				</div>
 				
 			</div>
-
-		
-
 	</div>
 
 	<div class="container-type">
