@@ -169,7 +169,7 @@
 					?>
 					<tr>
 						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td><td></td><td></td>
-						<td id="cancel"><a href="code.php?delete=<?php echo $data['id']; ?>">❌</a></td>	
+						<td ><a href="code.php?delete=<?php echo $data['id']; ?>" ><span id="cancel">❌</span></a></td>	
 					</tr>
 					<?php } ?>
 				</table>
@@ -197,7 +197,7 @@
 					?>
 					<tr>
 						<td><?php echo $data['Description']; ?></td><td></td><td><?php echo $data['Amount']; ?></td></td><td></td><td></td>
-						<td id="cancel"><a href="code.php?delete=<?php echo $data['id']; ?>">❌</a></td>
+						<td><a href="code.php?delete=<?php echo $data['id']; ?>">❌</a></td>
 					</tr>
 					<?php } ?>
 				</table>
